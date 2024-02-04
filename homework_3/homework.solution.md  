@@ -1,14 +1,12 @@
 Question 1: What is count of records for the 2022 Green Taxi Data??
-- 65,623,481
 - 840,402
-- 1,936,423
-- 253,647
 
 SELECT count(*) FROM `abiding-splicer-412408.dataset_demo.external_green_tripdata`;
 
 ## Question 2:
 Write a query to count the distinct number of PULocationIDs for the entire dataset on both the tables.</br>
 What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
+
 -- Count distinct PULocationIDs from the External Table
 SELECT COUNT(DISTINCT PULocationID) AS distinct_pu_location_ids_external
 FROM `abiding-splicer-412408.dataset_demo.external_green_tripdata`;
@@ -31,7 +29,7 @@ WHERE fare_amount = 0;
 ## Question 4:
 What is the best strategy to make an optimized table in Big Query if your query will always order the results by PUlocationID and filter based on lpep_pickup_datetime? (Create a new table with this strategy)
 
-- Partition by lpep_pickup_datetime and Partition by PUlocationID
+- Partition by lpep_pickup_datetime  Cluster on PUlocationID
 
 -- CREATE TABLE `abiding-splicer-412408.dataset_demo.optimized_table`
 -- PARTITION BY DATE(lpep_pickup_datetime)
